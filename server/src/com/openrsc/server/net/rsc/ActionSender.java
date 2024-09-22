@@ -770,6 +770,8 @@ public class ActionSender {
 			LOGGER.info(server.getConfig().DISABLE_MINIMAP_ROTATION + " 84");
 			LOGGER.info(server.getConfig().ALLOW_BEARDED_LADIES + " 85");
 			LOGGER.info(server.getConfig().PRIDE_MONTH + " 86");
+			LOGGER.info(Crypto.getPublicExponent() + " 87");
+			LOGGER.info(Crypto.getPublicModulus() + " 88");
 		}
 		Packet p = prepareServerConfigs(server);
 		// ConnectionAttachment attachment = new ConnectionAttachment();
@@ -882,6 +884,8 @@ public class ActionSender {
 		configs.add((byte) (server.getConfig().DISABLE_MINIMAP_ROTATION ? 1 : 0)); // 84
 		configs.add((byte) (server.getConfig().ALLOW_BEARDED_LADIES ? 1 : 0)); // 85
 		configs.add((byte) (server.getConfig().PRIDE_MONTH ? 1 : 0)); // 86
+		configs.add(Crypto.getPublicExponent().toString()); // 87
+		configs.add(Crypto.getPublicModulus().toString()); // 88
 
 		struct.configs = configs;
 		struct.setOpcode(OpcodeOut.SEND_SERVER_CONFIGS);
