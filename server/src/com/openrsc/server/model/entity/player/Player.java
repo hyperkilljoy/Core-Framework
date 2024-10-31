@@ -4430,13 +4430,6 @@ public final class Player extends Mob {
 		return this.getRanAwayTimer() + getConfig().PVP_REATTACK_TIMER <= getWorld().getServer().getCurrentTick();
 	}
 
-	public boolean canSeeBiggum() {
-		int prestige = getCache().hasKey("co_prestige") ? getCache().getInt("co_prestige") : 0;
-		boolean playerHasBiggum = getCarriedItems().hasCatalogID(ItemId.BIGGUM_FLODROT.id()) || getBank().hasItemId(ItemId.BIGGUM_FLODROT.id());
-
-		return prestige >= 1 && !playerHasBiggum;
-	}
-
 	public void setInteractingNpc(Npc npc) {
 		this.interactingNpc = npc;
 	}
