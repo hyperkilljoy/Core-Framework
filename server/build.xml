@@ -110,10 +110,11 @@
         <!-- java 8 compatible jvm args. Add more heap if you can. -->
         <echo message="Using JVM arguments for Java 8 minimum."/>
         <echo message="Upgrade to Java 17 or later for better garbage collection."/>
+        <echo message="Launch with 'ant runserverzgc' if you are already on Java 17 or newer."/>
         <java classname="com.openrsc.server.Server" fork="true">
             <!-- usage: `ant runserver -DconfFile=preservation` to run server with config file preservation.conf -->
             <arg value="${confFile}.conf"/>
-            <jvmarg line="-Xdiag -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseBiasedLocking -XX:NewSize=64m -DcoloredLogging=${coloredLogging}"/>
+            <jvmarg line="-XX:+IgnoreUnrecognizedVMOptions -Xdiag -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseBiasedLocking -XX:NewSize=64m -DcoloredLogging=${coloredLogging}"/>
             <classpath>
                 <pathelement location="${lib}/disruptor-3.3.0.jar"/>
                 <pathelement location="${lib}/log4j-api-2.17.0.jar"/>
