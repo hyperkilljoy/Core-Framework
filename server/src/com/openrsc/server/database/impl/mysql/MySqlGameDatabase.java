@@ -1930,8 +1930,8 @@ public class MySqlGameDatabase extends JDBCDatabase {
 	}
 
 	@Override
-	public int queryItemCreate(final Item item) throws GameDatabaseException {
-		int itemId = -1;
+	public long queryItemCreate(final Item item) throws GameDatabaseException {
+		long itemId = -1;
 		try (final PreparedStatement statement = getConnection().prepareStatement(getMySqlQueries().save_ItemCreate, 1)) {
 			statement.setInt(1, item.getCatalogId());
 			statement.setInt(2, item.getItemStatus().getAmount());
@@ -1942,7 +1942,7 @@ public class MySqlGameDatabase extends JDBCDatabase {
 
 			try (final ResultSet rs = statement.getGeneratedKeys()) {
 				if (rs.next()) {
-					itemId = rs.getInt(1);
+					itemId = rs.getLong(1);
 				}
 			}
 		} catch (final SQLException ex) {

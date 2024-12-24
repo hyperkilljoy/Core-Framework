@@ -244,7 +244,7 @@ public abstract class GameDatabase {
 	public abstract void querySaveLastRecoveryTryId(final int playerId, final int lastRecoveryTryId) throws GameDatabaseException;
 
 	//Item and Container operations
-	public abstract int queryItemCreate(Item item) throws GameDatabaseException;
+	public abstract long queryItemCreate(Item item) throws GameDatabaseException;
 
 	public abstract void purgeItem(Item item) throws GameDatabaseException;
 
@@ -498,7 +498,7 @@ public abstract class GameDatabase {
 		return queryInUseItemIds();
 	}
 
-	public int itemCreate(final Item item) throws GameDatabaseException {
+	public long itemCreate(final Item item) throws GameDatabaseException {
 		return queryItemCreate(item);
 	}
 
