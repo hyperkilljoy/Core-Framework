@@ -641,7 +641,7 @@ public class MySqlGameDatabase extends JDBCDatabase {
 
 			while (result.next()) {
 				final PlayerInventory invItem = new PlayerInventory();
-				invItem.itemId = result.getInt("itemId");
+				invItem.itemId = result.getLong("itemId");
 				invItem.slot = result.getInt("slot");
 				invItem.item = new Item(result.getInt("catalogId"));
 				invItem.item.setItemId(invItem.itemId);
@@ -667,7 +667,7 @@ public class MySqlGameDatabase extends JDBCDatabase {
 			if (getServer().getConfig().WANT_EQUIPMENT_TAB) {
 				while (result.next()) {
 					final PlayerEquipped equipped = new PlayerEquipped();
-					equipped.itemId = result.getInt("itemId");
+					equipped.itemId = result.getLong("itemId");
 					ItemStatus itemStatus = new ItemStatus();
 					itemStatus.setCatalogId(result.getInt("catalogId"));
 					itemStatus.setAmount(result.getInt("amount"));
@@ -694,7 +694,7 @@ public class MySqlGameDatabase extends JDBCDatabase {
 
 			while (result.next()) {
 				final PlayerBank bankItem = new PlayerBank();
-				bankItem.itemId = result.getInt("itemId");
+				bankItem.itemId = result.getLong("itemId");
 				ItemStatus itemStatus = new ItemStatus();
 				itemStatus.setCatalogId(result.getInt("catalogId"));
 				itemStatus.setAmount(result.getInt("amount"));
