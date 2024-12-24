@@ -128,7 +128,7 @@ public class Server implements Runnable {
 	private final Map<Integer, Integer> outgoingCountPerPacketOpcode = new HashMap<>();
 	private int privateMessagesSent = 0;
 
-	private volatile int maxItemId;
+	private volatile long maxItemId;
 
 	private final ListeningExecutorService sqlLoggingThreadPool;
 	private final ListeningExecutorService sqlThreadPool;
@@ -1149,11 +1149,11 @@ public class Server implements Runnable {
 		outgoingCountPerPacketOpcode.put(packetOpcode, outgoingCountPerPacketOpcode.get(packetOpcode) + 1);
 	}
 
-	public synchronized int getMaxItemID() {
+	public synchronized long getMaxItemID() {
 		return maxItemId;
 	}
 
-	public synchronized int incrementMaxItemID() {
+	public synchronized long incrementMaxItemID() {
 		return ++maxItemId;
 	}
 

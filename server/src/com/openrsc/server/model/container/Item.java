@@ -26,7 +26,7 @@ public class Item implements Comparable<Item> {
 	/**
 	 * The unique number given to each item instance
 	 */
-	private int itemId;
+	private long itemId;
 	//-------------------------------------------------------------------
 	//Class overridden methods--------------------------------------------
 
@@ -58,22 +58,22 @@ public class Item implements Comparable<Item> {
 		this(catalogId, amount, noted, ITEM_ID_UNASSIGNED);
 	}
 
-	public Item(int catalogId, int amount, boolean noted, int itemId) {
+	public Item(int catalogId, int amount, boolean noted, long itemId) {
 		itemStatus = new ItemStatus();
 		itemStatus.setCatalogId(catalogId);
 		itemStatus.setAmount(amount);
 		itemStatus.setNoted(noted);
 		itemStatus.setDurability(100);
-		this.itemId = itemId;
+	this.itemId = itemId;
 	}
 
-	public Item(int itemId, ItemStatus itemStatus) {
+	public Item(long itemId, ItemStatus itemStatus) {
 		this.itemId = itemId;
 		this.itemStatus = itemStatus;
 	}
 	//--------------------------------------------------------------
 	//Class member modifiers----------------------------------------
-	public final void setItemId(int itemId) {
+	public final void setItemId(long itemId) {
 		this.itemId = itemId;
 	}
 
@@ -103,7 +103,7 @@ public class Item implements Comparable<Item> {
 	}
 	//---------------------------------------------------------------
 	//Class Member Retrievals ----------------------------------------
-	public final int getItemId() {
+	public final long getItemId() {
 		return itemId;
 	}
 

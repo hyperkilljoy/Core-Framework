@@ -48,7 +48,7 @@ public abstract class GameDatabase {
 		open.set(false);
 	}
 
-	public abstract Set<Integer> getItemIDList();
+	public abstract Set<Long> getItemIDList();
 
 	protected abstract void openInternal();
 
@@ -82,7 +82,7 @@ public abstract class GameDatabase {
 
 	protected abstract FloorItem[] queryGroundItems() throws GameDatabaseException;
 
-	public abstract Integer[] queryInUseItemIds() throws GameDatabaseException;
+	public abstract Long[] queryInUseItemIds() throws GameDatabaseException;
 
 	public abstract void queryAddDropLog(ItemDrop drop) throws GameDatabaseException;
 
@@ -283,9 +283,9 @@ public abstract class GameDatabase {
 
 	public abstract int queryPlayerIdFromDiscordId(final long discordId) throws GameDatabaseException;
 
-	public abstract int queryMaxItemID() throws GameDatabaseException;
+	public abstract long queryMaxItemID() throws GameDatabaseException;
 
-	public abstract int addItemToPlayer(Item item);
+	public abstract long addItemToPlayer(Item item);
 
 	public abstract long queryCheckPlayerMute(final int playerId, final int muteType) throws GameDatabaseException;
 
@@ -494,7 +494,7 @@ public abstract class GameDatabase {
 		return queryGroundItems();
 	}
 
-	public Integer[] getInUseItemIds() throws GameDatabaseException {
+	public Long[] getInUseItemIds() throws GameDatabaseException {
 		return queryInUseItemIds();
 	}
 
@@ -510,7 +510,7 @@ public abstract class GameDatabase {
 		queryItemUpdate(item);
 	}
 
-	public int incrementMaxItemId(final Player player) {
+	public long incrementMaxItemId(final Player player) {
 		return player.getWorld().getServer().incrementMaxItemID();
 	}
 
@@ -1046,7 +1046,7 @@ public abstract class GameDatabase {
 		querySavePlayerMaxSkills(player.getDatabaseID(), skills);
 	}
 
-	public int getMaxItemID() {
+	public long getMaxItemID() {
 		try {
 			return queryMaxItemID();
 		}

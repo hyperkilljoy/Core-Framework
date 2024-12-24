@@ -90,12 +90,12 @@ public class CarriedItems {
 	 *  items that matches our supplied item argument. Will first
 	 *  search the inventory, and then the equipment if not found.
 	 */
-	public int remove(Item item) {
+	public long remove(Item item) {
 		return remove(item, true);
 	}
 
 	// TODO: Add parameter allowNoted
-	public int remove(Item item, boolean updateClient) {
+	public long remove(Item item, boolean updateClient) {
 		// If the item id isn't assigned, first attempt to get it from the inventory.
 		Item toRemove = item;
 		if (item.getItemId() == -1) {

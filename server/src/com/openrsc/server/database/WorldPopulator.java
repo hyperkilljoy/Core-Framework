@@ -173,8 +173,8 @@ public final class WorldPopulator {
 			LOGGER.info("Loaded {}", box(countGI) + " grounditems.");
 
 			//Load the in-use ItemID's from the database
-			Integer inUseItemIds[] = getWorld().getServer().getDatabase().getInUseItemIds();
-			for (Integer itemId : inUseItemIds)
+			Long inUseItemIds[] = getWorld().getServer().getDatabase().getInUseItemIds();
+			for (Long itemId : inUseItemIds)
 				getWorld().getServer().getDatabase().getItemIDList().add(itemId);
 
 			LOGGER.info("Loaded {}", box(getWorld().getServer().getDatabase().getItemIDList().size()) + " itemIDs.");

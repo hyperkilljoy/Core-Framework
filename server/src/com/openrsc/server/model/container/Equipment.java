@@ -92,7 +92,7 @@ public class Equipment {
 
 			if (list[slotID] == null) {
 				Item toEquip = new Item(item.getCatalogId(), item.getAmount(), item.getNoted());
-				int itemID = player.getWorld().getServer().getDatabase().incrementMaxItemId(player);
+				long itemID = player.getWorld().getServer().getDatabase().incrementMaxItemId(player);
 				toEquip = new Item(toEquip.getCatalogId(), toEquip.getAmount(), toEquip.getNoted(), itemID);
 				list[slotID] = toEquip;
 				return slotID;
@@ -115,7 +115,7 @@ public class Equipment {
 
 	public int remove(Item item, int amount, boolean updateClient) {
 		synchronized (list) {
-			int itemId = item.getItemId();
+			long itemId = item.getItemId();
 			for (int slotID = 0; slotID < SLOT_COUNT; slotID++) {
 				Item curEquip = list[slotID];
 				if (curEquip == null || curEquip.getDef(player.getWorld()) == null)

@@ -5,7 +5,7 @@ import com.openrsc.server.model.container.ItemStatus;
 
 public class PlayerEquipped {
 	public int playerId;
-	public int itemId;
+	public long itemId;
 	@JsonUnwrapped
 	public ItemStatus itemStatus;
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.openrsc.server.model.container.ItemStatus;
 
 public class PlayerBank {
-	public int itemId;
+	public long itemId;
 	@JsonUnwrapped
 	public ItemStatus itemStatus;
 

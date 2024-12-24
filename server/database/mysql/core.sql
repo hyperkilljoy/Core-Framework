@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `bank`;
 CREATE TABLE IF NOT EXISTS `bank`
 (
     `playerID` int(10) UNSIGNED NOT NULL,
-    `itemID`   int(10) UNSIGNED NOT NULL,
+    `itemID`   BIGINT NOT NULL,
     `slot`     int(5) UNSIGNED  NOT NULL DEFAULT 0,
     KEY (`playerID`)
 ) ENGINE = InnoDB
@@ -206,7 +206,7 @@ DROP TABLE IF EXISTS `invitems`;
 CREATE TABLE IF NOT EXISTS `invitems`
 (
     `playerID` int(10) UNSIGNED NOT NULL,
-    `itemID`   int(10) UNSIGNED NOT NULL,
+    `itemID`   BIGINT NOT NULL,
     `slot`     int(5) UNSIGNED  NOT NULL,
     KEY (`playerID`)
 ) ENGINE = InnoDB
@@ -549,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `grounditems`
 DROP TABLE IF EXISTS `itemstatuses`;
 CREATE TABLE IF NOT EXISTS `itemstatuses`
 (
-    `itemID`     int(10) UNSIGNED    NOT NULL,
+    `itemID`     BIGINT    NOT NULL,
     `catalogID`  int(10) UNSIGNED    NOT NULL,
     `amount`     int(10) UNSIGNED    NOT NULL DEFAULT 1,
     `noted`      tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
